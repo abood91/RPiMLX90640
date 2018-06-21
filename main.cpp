@@ -289,6 +289,7 @@ pixelArray* Colorise()
 {
   Pixel returnValues[NROWS][NCOLS];
 
+//************************************This saves file to local disk (rgb.txt file to img folder) *****************************************************//
 	std::ostringstream RGBfile;
 	RGBfile << "./img/" << currentDateTime() << ".rgb.txt";
   std::ofstream myRGBfile (RGBfile.str(), std::ios::out | std::ios::app);
@@ -382,6 +383,8 @@ pixelArray* Colorise()
 	}
 	printf("\n\r");
 
+	//*************************************************************************************//
+
   /*for (i=0; i<NROWS; i++) {
       //pc.printf("D%2d:",i);
       for (j=0; j<NCOLS; j++) {
@@ -421,7 +424,7 @@ void display_Ima()
   NORMALIZED = NormaliseValue();
   printf("************NORMALIZED Data: %.3f ***********\n\r", *NORMALIZED+6);
 
-	//************************************This saves file to local disk at text file *****************************************************//
+	//************************************This saves file to local disk (temp.txt file to img folder) *****************************************************//
 
   printf("************Temp Data***********\n\r");
   printf("PRINTING IMAGE FROM DISPALY IMAGE MAIN \n\n\r");
