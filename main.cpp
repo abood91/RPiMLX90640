@@ -396,12 +396,12 @@ void display_Ima()
 {
 
   int             fd, sleeper;
-  std::ostringstream tempfile, bucketFileName, bmpFileName; //rawfile,
+  std::ostringstream tempfile, bmpFileName; //rawfile,
   std::string oneHBack = OneHoureBackTime();
   tempfile << "./img/" << currentDateTime() << ".temp.txt";
   bmpFileName << "./img/" << currentDateTime() << ".temp.bmp";
-  bucketFileName << currentDateTime() << ".temp.txt";
   //rawfile << "./img/" << currentDateTime() << ".raw.txt";
+
   std::ofstream mytempfile (tempfile.str(), std::ios::out | std::ios::app);
   //std::ofstream myrawfile (rawfile.str(), std::ios::out | std::ios::app);
 
@@ -420,6 +420,8 @@ void display_Ima()
   printf("************NORMALIZED Data***********\n\r");
   NORMALIZED = NormaliseValue();
   printf("************NORMALIZED Data: %.3f ***********\n\r", *NORMALIZED+6);
+
+	//************************************This saves file to local disk at text file *****************************************************//
 
   printf("************Temp Data***********\n\r");
   printf("PRINTING IMAGE FROM DISPALY IMAGE MAIN \n\n\r");
@@ -448,11 +450,15 @@ void display_Ima()
   if (mytempfile.is_open())
     mytempfile.close();
   printf("\n\r");
+	//*****************************************************************************************//
 
   printf("************COLORIZED Data***********\n\r");
   printf("PRINTING IMAGE FROM DISPALY IMAGE MAIN \n\n\r");
   COLORIZED = Colorise();
 
+
+//********************************************This will remove the data that is 1 h old ***********************************///
+#ifdef REMOVE_1H_OLD_FILES
   DIR* dp;
   struct dirent* ep;
   char* path = "/home/pi/90640-v3-driver/img/";
@@ -487,8 +493,8 @@ void display_Ima()
     }
   }
   closedir(dp);
-
-
+#endif
+//*******************************************************************************///
 
   printf("\n\r");
   sleeper = 1000000*sleepinsec;
