@@ -42,8 +42,6 @@ extern short    IMA[NROWS][NCOLS];
 extern int      i,j,k;
 extern unsigned char       ir_data[NROWS*NCOLS*2+2];   // toke a few bytes more to be sure!
 
-
-#define CHESS_PAT;
 // for file parameter read
 
 char            refesh_rate = '0';
