@@ -394,7 +394,7 @@ pixelArray* Colorise()
   }*/
   return &returnValues;
 }
-]
+
 void display_Ima()
 {
 
