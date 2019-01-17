@@ -590,4 +590,6 @@ int main(int argc =2, const char* argv[] =defaults)
     printf("Image sync is lost, fix speed in your application!\n\r");
     //GET_A_KEY();
     find_objects();     // call to top level routine
+    //End i2c
+    bcm2835_i2c_end();
 } // end main
