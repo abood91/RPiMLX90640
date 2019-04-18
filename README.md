@@ -23,6 +23,9 @@ sudo make install
  60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
  70: -- -- -- -- -- -- -- --
  ```
+ 
+ Make sure you have cmake installed, in case of issues please :
+ `sudo apt-get install cmake`
 
 ## Build: ##
 After you have verified that melexis90640 connected correctly, now you can compile the driver code:
